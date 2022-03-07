@@ -32,11 +32,12 @@ let arrUtenti = [
     }
 ];
 
-
+// ciclo che stampa tutti gli elementi dell'array
 for (let i = 0; i < arrUtenti.length; i++) {
     generateCard(arrUtenti[i].name, arrUtenti[i].role, arrUtenti[i].image);
 }
 
+//funzione che crea le card
 function generateCard(name, role, image) {
     let card = `          
     <div class="team-card">
@@ -53,4 +54,24 @@ function generateCard(name, role, image) {
     </div>`;
 
     eleContainer.innerHTML += card;
-}
+};
+
+// funzione che crea nuove card e aggiunge oggetti all'array
+const btnAdd = document.querySelector('#addMemberButton');
+
+btnAdd.addEventListener('click', function() {
+
+    let eleinputName = document.querySelector('#name').value;
+    let eleinputRole = document.querySelector('#role').value;
+    let eleinputImg = document.querySelector('#image').value;
+
+    const newUtenti = {    
+        name: eleinputName,
+        role: eleinputRole,
+        image: eleinputImg
+    }
+
+    arrUtenti.push(newUtenti);
+
+    generateCard(eleinputName, eleinputRole, eleinputImg)
+});
