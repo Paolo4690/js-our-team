@@ -61,17 +61,21 @@ const btnAdd = document.querySelector('#addMemberButton');
 
 btnAdd.addEventListener('click', function() {
 
-    let eleinputName = document.querySelector('#name').value;
-    let eleinputRole = document.querySelector('#role').value;
-    let eleinputImg = document.querySelector('#image').value;
+    let eleinputName = document.querySelector('#name');
+    let eleinputRole = document.querySelector('#role');
+    let eleinputImg = document.querySelector('#image');
 
     const newUtenti = {    
-        name: eleinputName,
-        role: eleinputRole,
-        image: eleinputImg
+        name: eleinputName.value,
+        role: eleinputRole.value,
+        image: eleinputImg.value
     }
 
     arrUtenti.push(newUtenti);
 
-    generateCard(eleinputName, eleinputRole, eleinputImg)
+    generateCard(eleinputName.value, eleinputRole.value, eleinputImg.value);
+    
+    eleinputName.value = '';
+    eleinputRole.value = '';
+    eleinputImg.value = '';
 });
